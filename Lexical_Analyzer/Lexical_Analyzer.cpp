@@ -4,7 +4,11 @@
 #include<string>
 #include<ctype.h>
 #include<regex>
+<<<<<<< HEAD
 #include<stack>
+=======
+#include<stack> //for adress
+>>>>>>> parent of 241a995... Test
 
 
 using namespace std;
