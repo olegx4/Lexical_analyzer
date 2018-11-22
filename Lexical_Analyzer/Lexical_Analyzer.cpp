@@ -1,100 +1,76 @@
 #include<iostream>
 #include<fstream>
 #include<stdlib.h>
-#include<string>
+#include<String>
 #include<ctype.h>
 #include<regex>
 #include<stack> //for adress
 
 using namespace std;
 
-void thisIs(string input){
-	regex Constant("\\d+");
-	regex Keyword("MOV|mov|xchg");
-	regex Separator(",|;|[[:space:]]");
-	regex Register("EAX|EBX|EDX|EBP|ESP|ESI|EDI|EFLAGS|EIP|CS|DS|ES|FS|GS|SS");
-
-	if (regex_match(input, Constant))
-		cout << "is constant\n";
-	else if(regex_match(input, Keyword))
-		cout << "is keyword\n";
-	else if (regex_match(input, Separator))
-		cout << "is separator\n";
-	else if (regex_match(input, Register))
-		cout << "is register\n";
-	else
-		cout << "smth new\n";
+void isRegister(int &lexemnumber, string input) {
+	cmatch result;
+	regex Register("(ax|bx|dx|bp|eax|ebx|edx|ebp|esp|esi|edi|eflags|eip|cs|ds|es|fs|gs|ss)");
+	if (regex_match(input, Register)) {
+		cout << "lexem:\t" << lexemnumber++ << "\t" << input << " is register\n";
+	}
 }
 
-//int isKeyword(char buffer[]) {
-//	char keywords[32][10] = { "MOV", "" };
-//	int i, flag = 0;
-//
-//	for (i = 0; i < 32; ++i) {
-//		if (strcmp(keywords[i], buffer) == 0) {
-//			flag = 1;
-//			break;
-//		}
-//	}
-//
-//	return flag;
-//}
+void isKeyWord(int linenumber, int &lexemnumber, string input, bool &flag) {
+	cmatch result;
+	regex Keyword("mov|MOV");
+	if (regex_search(input.c_str(), result, Keyword)) {
+		cout << "Line : " << linenumber << endl;
+		flag = true;
+		for (int i = 0; i < result.size(); i++)
+			cout << "lexem:\t" << lexemnumber++ << "\t" << result[i] << " is keyword\n";
+	}
+}
 
-//int isRegistry(char buffer[]) {
-//	char keywords[32][10] = { "MOV", "" };
-//	int i, flag = 0;
-//
-//	for (i = 0; i < 32; ++i) {
-//		if (strcmp(keywords[i], buffer) == 0) {
-//			flag = 1;
-//			break;
-//		}
-//	}
-//
-//	return flag;
-//}
 
 void main() {
-	while (1) {
-		string NewString, test = "";
-		thisIs(test);
-		cin >> NewString;
-		thisIs(NewString);
-	}
-	/*char ch, buffer[15], operators[] = "+-* /=";
+
+	string str = "";
+	string buffer = "";
 	ifstream fin("program.txt");
-	int i, j = 0;
+	bool flag = false;
+	int linenumber = 1, lexemnumber = 1;
 
 	if (!fin.is_open()) {
 		cout << "error while opening the file\n";
 		exit(0);
 	}
 
-	while (!fin.eof()) {
-		ch = fin.get();
+	while (getline(fin, str)) {
+		isKeyWord(linenumber, lexemnumber, str, flag);
+		if (flag) {
+			for (int i = 0; i < str.length(); i++) {
+				if (ispunct(str[i]) && buffer.empty())
+					cout << "lexem:\t" << lexemnumber++ << "\t" << str[i] << " is separator\n";
+				else if (isdigit(str[i])) {
+					while (isdigit(str[i])) {
+						buffer += str[i];
+						i++;
+					}
+					cout << "lexem:\t" << lexemnumber++ << "\t" << buffer << " is digit\n";
+					buffer.clear();
+				}
+				else if (isalpha(str[i])) {
+					while (isalpha(str[i])) {
+						buffer += str[i];
+						i++;
+					}
+					if (!buffer.empty()) {
+						isRegister(lexemnumber, buffer);
+						buffer.clear();
+					}
 
-		for (i = 0; i < 6; ++i) {
-			if (ch == operators[i])
-				cout << ch << " is operator\n";
+				}
+
+			}
 		}
-
-		if (isalnum(ch)) {
-			buffer[j++] = ch;
-		}
-		else if ((ch == ' ' || ch == '\n') && (j != 0)) {
-			buffer[j] = '\0';
-			j = 0;
-
-			if (isKeyword(buffer) == 1)
-				cout << buffer << " is keyword\n";
-			else
-				cout << buffer << " is indentifier\n";
-		}
-
+		flag = false;
+		linenumber++;
 	}
-
 	fin.close();
-
-	return 0;
-	*/
 }
