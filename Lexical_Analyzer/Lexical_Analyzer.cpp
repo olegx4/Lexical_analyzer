@@ -4,7 +4,7 @@
 #include<string>
 #include<ctype.h>
 #include<regex>
-#include<stack> //Test2
+#include<stack>
 
 
 using namespace std;
