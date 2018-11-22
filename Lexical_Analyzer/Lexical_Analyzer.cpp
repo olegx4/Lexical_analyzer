@@ -4,29 +4,28 @@
 #include<string>
 #include<ctype.h>
 #include<regex>
-<<<<<<< HEAD
-#include<stack>
-=======
 #include<stack> //for adress
->>>>>>> parent of 241a995... Test
-
 
 using namespace std;
 
 void thisIs(string input){
-	regex constant("\\d+");
-	regex keyword("MOV|mov|xchg");
-	regex separator(",|;| ");
+	regex Constant("\\d+");
+	regex Keyword("MOV|mov|xchg");
+	regex Separator(",|;|[[:space:]]");
+	regex Register("EAX|EBX|EDX|EBP|ESP|ESI|EDI|EFLAGS|EIP|CS|DS|ES|FS|GS|SS");
 
-	if (regex_match(input, constant))
+	if (regex_match(input, Constant))
 		cout << "is constant\n";
-	else if(regex_match(input, keyword))
-		cout << "is operator\n";
-	else if (regex_match(input, separator))
+	else if(regex_match(input, Keyword))
+		cout << "is keyword\n";
+	else if (regex_match(input, Separator))
 		cout << "is separator\n";
+	else if (regex_match(input, Register))
+		cout << "is register\n";
 	else
 		cout << "smth new\n";
 }
+
 //int isKeyword(char buffer[]) {
 //	char keywords[32][10] = { "MOV", "" };
 //	int i, flag = 0;
@@ -57,7 +56,8 @@ void thisIs(string input){
 
 void main() {
 	while (1) {
-		string NewString;
+		string NewString, test = "";
+		thisIs(test);
 		cin >> NewString;
 		thisIs(NewString);
 	}
