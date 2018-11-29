@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lexical_Analyzer", "Lexical_Analyzer\Lexical_Analyzer.vcxproj", "{04ED0B77-E983-4C6A-9919-F1C6085FCBD7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Syntax_analyzer", "Syntax_analyzer\Syntax_analyzer.vcxproj", "{26B9394F-2C60-4224-973E-6D7B07174A93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{04ED0B77-E983-4C6A-9919-F1C6085FCBD7}.Release|x64.Build.0 = Release|x64
 		{04ED0B77-E983-4C6A-9919-F1C6085FCBD7}.Release|x86.ActiveCfg = Release|Win32
 		{04ED0B77-E983-4C6A-9919-F1C6085FCBD7}.Release|x86.Build.0 = Release|Win32
+		{26B9394F-2C60-4224-973E-6D7B07174A93}.Debug|x64.ActiveCfg = Debug|x64
+		{26B9394F-2C60-4224-973E-6D7B07174A93}.Debug|x64.Build.0 = Debug|x64
+		{26B9394F-2C60-4224-973E-6D7B07174A93}.Debug|x86.ActiveCfg = Debug|Win32
+		{26B9394F-2C60-4224-973E-6D7B07174A93}.Debug|x86.Build.0 = Debug|Win32
+		{26B9394F-2C60-4224-973E-6D7B07174A93}.Release|x64.ActiveCfg = Release|x64
+		{26B9394F-2C60-4224-973E-6D7B07174A93}.Release|x64.Build.0 = Release|x64
+		{26B9394F-2C60-4224-973E-6D7B07174A93}.Release|x86.ActiveCfg = Release|Win32
+		{26B9394F-2C60-4224-973E-6D7B07174A93}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

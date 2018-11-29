@@ -15,7 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Program.txt">
+    <Text Include="ReadMe.txt" />
+    <Text Include="..\Lexical_Analyzer\Program.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
@@ -26,15 +27,12 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lexical_Analyzer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lexical_Analyzer.cpp">
+    <ClCompile Include="Syntax_analyzer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
