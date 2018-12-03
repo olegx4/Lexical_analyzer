@@ -23,7 +23,7 @@
     <ProjectGuid>{26B9394F-2C60-4224-973E-6D7B07174A93}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Syntax_analyzer</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="..\Lexical_Analyzer\Program.txt" />
+    <Text Include="..\Lexical_Analyzer\synt.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -23,15 +23,15 @@ void main() {
 	map<string, int> lexemsPriority{ {"*",1},{ "/",1 },{ "+",2 }, { "-",2 },{ ">", 3}, { "<", 3 }, { ">=", 3 },{ "<=", 3 } };
 	string str = "";
 	string buffer = "";
-	ifstream fin("program.txt");
+	ifstream fin("synt.txt");
 	stack<char> lexemsAcc;
 	bool flag = false;
 	int linenumber = 1;
 
-	if (!fin.is_open()) {
+	/*if (!fin.is_open()) {
 		cout << "error while opening the file\n";
 		exit(0);
-	}
+	}*/
 
 	while (getline(fin, str)) {
 		for (int i = 0; i < str.length(); i++) {

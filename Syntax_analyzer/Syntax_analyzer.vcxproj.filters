@@ -16,7 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-    <Text Include="..\Lexical_Analyzer\Program.txt">
+    <Text Include="..\Lexical_Analyzer\synt.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
